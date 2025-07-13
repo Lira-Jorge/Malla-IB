@@ -18,39 +18,146 @@
       margin: 20px;
     }
     #network {
-      width: 90vw;
-      height: 80vh;
+      width: 95vw;
+      height: 90vh;
       border: 1px solid #ccc;
       background: #fff;
     }
   </style>
 </head>
 <body>
-  <h2>Malla Curricular Interactiva – Ingeniería Biomédica (Demo)</h2>
+  <h2>Malla Curricular Interactiva – Ingeniería Biomédica (UACH)</h2>
   <div id="network"></div>
   <script>
     const nodes = new vis.DataSet([
-      { id: 1, label: "IPP-24\nIdentidad", group: '1', title: "Créditos: 4", color: '#AED6F1' },
-      { id: 2, label: "CD-24\nCultura Digital", group: '1', title: "Créditos: 4", color: '#AED6F1' },
-      { id: 3, label: "I101\nInglés I", group: '1', title: "Créditos: 4", color: '#AED6F1' },
-      { id: 4, label: "DS104\nCálculo Dif. e Int.", group: '1', title: "Créditos: 6", color: '#AED6F1' },
-      { id: 5, label: "DS105\nFísica General", group: '1', title: "Créditos: 6", color: '#AED6F1' },
-      { id: 6, label: "IB107\nBiología Celular", group: '1', title: "Créditos: 6", color: '#AED6F1' },
-      { id: 7, label: "IB108\nÁlgebra Superior", group: '1', title: "Créditos: 6", color: '#AED6F1' },
+      // Semestre 1
+      { id: 'IPP-24', label: 'IPP-24\nIdentidades Personal y Profesional', group: '1', title: 'Créditos: 4' },
+      { id: 'CD-24', label: 'CD-24\nCultura Digital', group: '1', title: 'Créditos: 4' },
+      { id: 'I101', label: 'I101\nInglés I', group: '1', title: 'Créditos: 4' },
+      { id: 'DS104', label: 'DS104\nCálculo Diferencial e Integral', group: '1', title: 'Créditos: 6' },
+      { id: 'DS105', label: 'DS105\nFísica General', group: '1', title: 'Créditos: 6' },
+      { id: 'IB106', label: 'IB106\nQuímica Básica', group: '1', title: 'Créditos: 6' },
+      { id: 'IB107', label: 'IB107\nBiología Celular y Molecular', group: '1', title: 'Créditos: 6' },
+      { id: 'IB108', label: 'IB108\nÁlgebra Superior', group: '1', title: 'Créditos: 6' },
 
-      { id: 8, label: "DS214\nCálculo Vectorial", group: '2', title: "Créditos: 6", color: '#A9DFBF' },
-      { id: 9, label: "IB215\nMecánica", group: '2', title: "Créditos: 6", color: '#A9DFBF' },
-      { id: 10, label: "IB216\nQuímica Orgánica", group: '2', title: "Créditos: 6", color: '#A9DFBF' },
-      { id: 11, label: "IB207\nAnatomía", group: '2', title: "Créditos: 6", color: '#A9DFBF' },
-      { id: 12, label: "DS218\nÁlgebra Lineal", group: '2', title: "Créditos: 6", color: '#A9DFBF' },
+      // Semestre 2
+      { id: 'I201', label: 'I201\nInglés II', group: '2' },
+      { id: 'IIG-24', label: 'IIG-24\nInterculturalidades, Inclusión y Género', group: '2' },
+      { id: 'ERS-24', label: 'ERS-24\nEcologización y Responsabilidad Social', group: '2' },
+      { id: 'DS214', label: 'DS214\nCálculo Vectorial', group: '2' },
+      { id: 'IB215', label: 'IB215\nMecánica', group: '2' },
+      { id: 'IB216', label: 'IB216\nQuímica Orgánica', group: '2' },
+      { id: 'IB207', label: 'IB207\nAnatomía', group: '2' },
+      { id: 'DS218', label: 'DS218\nÁlgebra Lineal', group: '2' },
+
+      // Semestre 3
+      { id: 'IB301', label: 'IB301\nMétodos Numéricos', group: '3' },
+      { id: 'IB302', label: 'IB302\nProgramación', group: '3' },
+      { id: 'I301', label: 'I301\nInglés III', group: '3' },
+      { id: 'DS314', label: 'DS314\nEcuaciones Diferenciales Ordinarias', group: '3' },
+      { id: 'IB315', label: 'IB315\nTermodinámica', group: '3' },
+      { id: 'IB316', label: 'IB316\nBioquímica', group: '3' },
+      { id: 'IB317', label: 'IB317\nBiofísica', group: '3' },
+      { id: 'DS318', label: 'DS318\nElectricidad y Magnetismo', group: '3' },
+
+      // Semestre 4
+      { id: 'IB401', label: 'IB401\nBases de Datos y Big Data', group: '4' },
+      { id: 'IB412', label: 'IB412\nLenguajes de Programación', group: '4' },
+      { id: 'I401', label: 'I401\nInglés IV', group: '4' },
+      { id: 'IB414', label: 'IB414\nAnálisis de Circuitos CD', group: '4' },
+      { id: 'IB415', label: 'IB415\nSistemas Digitales', group: '4' },
+      { id: 'IB406', label: 'IB406\nAcústica y Óptica', group: '4' },
+      { id: 'IB417', label: 'IB417\nFisiología I', group: '4' },
+      { id: 'IB408', label: 'IB408\nBioestadística', group: '4' },
+
+      // Semestre 5
+      { id: 'IB511', label: 'IB511\nInstrumentación', group: '5' },
+      { id: 'IB512', label: 'IB512\nSistemas Analógicos', group: '5' },
+      { id: 'IB513', label: 'IB513\nInglés Técnico', group: '5' },
+      { id: 'IB514', label: 'IB514\nAnálisis de Circuitos CA', group: '5' },
+      { id: 'IB515', label: 'IB515\nMicrocontroladores', group: '5' },
+      { id: 'IB506', label: 'IB506\nHistología', group: '5' },
+      { id: 'IB517', label: 'IB517\nFisiología II', group: '5' },
+      { id: 'IBOP508', label: 'IBOP508\nOptativa 1', group: '5' },
+
+      // Semestre 6
+      { id: 'IB601', label: 'IB601\nFinanzas para Ingeniería', group: '6' },
+      { id: 'IB612', label: 'IB612\nAdquisición y Manejo de Señales', group: '6' },
+      { id: 'IB603', label: 'IB603\nBiomateriales', group: '6' },
+      { id: 'IB614', label: 'IB614\nElectrónica de Potencia', group: '6' },
+      { id: 'IB615', label: 'IB615\nTeoría de Control', group: '6' },
+      { id: 'IB606', label: 'IB606\nBiomecánica', group: '6' },
+      { id: 'IB617', label: 'IB617\nBioingeniería', group: '6' },
+      { id: 'IBOP608', label: 'IBOP608\nOptativa 2', group: '6' },
+
+      // Semestre 7
+      { id: 'IB711', label: 'IB711\nEvaluación y Gestión de Proyectos', group: '7' },
+      { id: 'IB712', label: 'IB712\nData Science y Machine Learning', group: '7' },
+      { id: 'IB703', label: 'IB703\nGestión de Tecnologías de Salud', group: '7' },
+      { id: 'IB704', label: 'IB704\nSeminario de Investigación', group: '7' },
+      { id: 'IB715', label: 'IB715\nSistemas Embebidos', group: '7' },
+      { id: 'IB716', label: 'IB716\nIngeniería de Rehabilitación', group: '7' },
+      { id: 'IB717', label: 'IB717\nIngeniería de Tejidos', group: '7' },
+      { id: 'IBOP708', label: 'IBOP708\nOptativa 3', group: '7' },
+
+      // Semestre 8
+      { id: 'IB811', label: 'IB811\nEmprendimiento Sostenible', group: '8' },
+      { id: 'IB802', label: 'IB802\nRegulatory Affairs', group: '8' },
+      { id: 'IB813', label: 'IB813\nIngeniería Clínica', group: '8' },
+      { id: 'IB814', label: 'IB814\nEquipo Hospitalario', group: '8' },
+      { id: 'IB805', label: 'IB805\nImagenología Médica', group: '8' },
+      { id: 'IBOP808', label: 'IBOP808\nOptativa 4', group: '8' },
+
+      // Semestre 9
+      { id: 'IB901', label: 'IB901\nLiderazgo Organizacional', group: '9' },
+      { id: 'IB902', label: 'IB902\nProcesos de Manufactura', group: '9' },
+      { id: 'IB903', label: 'IB903\nCertificación Inglés', group: '9' },
+      { id: 'DS904', label: 'DS904\nBioética', group: '9' },
+      { id: 'IBOP908', label: 'IBOP908\nOptativa 5', group: '9' },
     ]);
 
     const edges = new vis.DataSet([
-      { from: 4, to: 8 }, // Cálculo Dif. e Int. -> Cálculo Vectorial
-      { from: 5, to: 9 }, // Física General -> Mecánica
-      { from: 6, to: 10 }, // Biología Celular -> Química Orgánica
-      { from: 6, to: 11 }, // Biología Celular -> Anatomía
-      { from: 7, to: 12 }, // Álgebra Superior -> Álgebra Lineal
+      { from: 'I101', to: 'I201' },
+      { from: 'I201', to: 'I301' },
+      { from: 'I301', to: 'I401' },
+      { from: 'I401', to: 'IB513' },
+
+      { from: 'DS104', to: 'DS214' },
+      { from: 'DS214', to: 'DS314' },
+      { from: 'DS314', to: 'IB301' },
+
+      { from: 'DS105', to: 'IB215' },
+      { from: 'IB215', to: 'IB315' },
+
+      { from: 'IB107', to: 'IB216' },
+      { from: 'IB216', to: 'IB316' },
+      { from: 'IB316', to: 'IB417' },
+
+      { from: 'IB317', to: 'IB417' },
+      { from: 'IB417', to: 'IB517' },
+      { from: 'IB517', to: 'IB617' },
+
+      { from: 'IB414', to: 'IB511' },
+      { from: 'IB414', to: 'IB512' },
+      { from: 'IB414', to: 'IB514' },
+      { from: 'IB514', to: 'IB614' },
+      { from: 'IB512', to: 'IB615' },
+      { from: 'IB511', to: 'IB612' },
+      { from: 'IB515', to: 'IB612' },
+      { from: 'IB612', to: 'IB712' },
+      { from: 'IB612', to: 'IB715' },
+
+      { from: 'IB715', to: 'IB716' },
+      { from: 'IB617', to: 'IB717' },
+      { from: 'IB601', to: 'IB711' },
+      { from: 'IB711', to: 'IB811' },
+      { from: 'IB703', to: 'IB813' },
+      { from: 'IB703', to: 'IB814' },
+
+      { from: 'IBOP508', to: 'IBOP608' },
+      { from: 'IBOP608', to: 'IBOP708' },
+      { from: 'IBOP708', to: 'IBOP808' },
+      { from: 'IBOP808', to: 'IBOP908' },
     ]);
 
     const container = document.getElementById("network");
@@ -59,23 +166,21 @@
       layout: {
         hierarchical: {
           direction: "LR",
-          sortMethod: "directed"
+          sortMethod: "directed",
+          nodeSpacing: 100,
+          levelSeparation: 150
         }
       },
       interaction: { hover: true },
       nodes: {
         shape: "box",
-        font: { size: 12, face: "arial" },
+        font: { size: 11, face: "arial" },
         borderWidth: 1,
       },
       edges: {
         arrows: "to",
         color: { color: "#555" },
         smooth: true,
-      },
-      groups: {
-        '1': { color: { background: '#AED6F1' } },
-        '2': { color: { background: '#A9DFBF' } }
       }
     };
 
