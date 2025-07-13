@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Malla Interactiva IB UACH</title>
+  <script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    h2 {
+      margin: 20px;
+    }
+    #network {
+      width: 90vw;
+      height: 80vh;
+      border: 1px solid #ccc;
+      background: #fff;
+    }
+  </style>
+</head>
+<body>
+  <h2>Malla Curricular Interactiva – Ingeniería Biomédica (Demo)</h2>
+  <div id="network"></div>
+  <script>
+    const nodes = new vis.DataSet([
+      { id: 1, label: "IPP-24\nIdentidad", group: '1', title: "Créditos: 4", color: '#AED6F1' },
+      { id: 2, label: "CD-24\nCultura Digital", group: '1', title: "Créditos: 4", color: '#AED6F1' },
+      { id: 3, label: "I101\nInglés I", group: '1', title: "Créditos: 4", color: '#AED6F1' },
+      { id: 4, label: "DS104\nCálculo Dif. e Int.", group: '1', title: "Créditos: 6", color: '#AED6F1' },
+      { id: 5, label: "DS105\nFísica General", group: '1', title: "Créditos: 6", color: '#AED6F1' },
+      { id: 6, label: "IB107\nBiología Celular", group: '1', title: "Créditos: 6", color: '#AED6F1' },
+      { id: 7, label: "IB108\nÁlgebra Superior", group: '1', title: "Créditos: 6", color: '#AED6F1' },
+
+      { id: 8, label: "DS214\nCálculo Vectorial", group: '2', title: "Créditos: 6", color: '#A9DFBF' },
+      { id: 9, label: "IB215\nMecánica", group: '2', title: "Créditos: 6", color: '#A9DFBF' },
+      { id: 10, label: "IB216\nQuímica Orgánica", group: '2', title: "Créditos: 6", color: '#A9DFBF' },
+      { id: 11, label: "IB207\nAnatomía", group: '2', title: "Créditos: 6", color: '#A9DFBF' },
+      { id: 12, label: "DS218\nÁlgebra Lineal", group: '2', title: "Créditos: 6", color: '#A9DFBF' },
+    ]);
+
+    const edges = new vis.DataSet([
+      { from: 4, to: 8 }, // Cálculo Dif. e Int. -> Cálculo Vectorial
+      { from: 5, to: 9 }, // Física General -> Mecánica
+      { from: 6, to: 10 }, // Biología Celular -> Química Orgánica
+      { from: 6, to: 11 }, // Biología Celular -> Anatomía
+      { from: 7, to: 12 }, // Álgebra Superior -> Álgebra Lineal
+    ]);
+
+    const container = document.getElementById("network");
+    const data = { nodes, edges };
+    const options = {
+      layout: {
+        hierarchical: {
+          direction: "LR",
+          sortMethod: "directed"
+        }
+      },
+      interaction: { hover: true },
+      nodes: {
+        shape: "box",
+        font: { size: 12, face: "arial" },
+        borderWidth: 1,
+      },
+      edges: {
+        arrows: "to",
+        color: { color: "#555" },
+        smooth: true,
+      },
+      groups: {
+        '1': { color: { background: '#AED6F1' } },
+        '2': { color: { background: '#A9DFBF' } }
+      }
+    };
+
+    new vis.Network(container, data, options);
+  </script>
+</body>
+</html>
